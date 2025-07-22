@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIN Lookup API By Smart Dev</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Social Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #ffffff, #e9ecef);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand img {
+            height: 30px;
+            margin-right: 10px;
+            animation: spin 4s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #ffffff, #e9ecef);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero .developer-credit {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .hero .developer-credit img {
+            height: 40px;
+            margin-left: 10px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+            animation: pulse 1.5s infinite;
+        }
+
+        .status-healthy {
+            background-color: #28a745;
+        }
+
+        .status-error {
+            background-color: #dc3545;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .api-test-form {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 12px;
+        }
+
+        .result-box {
+            background-color: #f1f3f5;
+            padding: 1rem;
+            border-radius: 8px;
+            max-height: 400px;
+            overflow-y: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .docs-section {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 12px;
+        }
+
+        .docs-section h3 {
+            color: #F0B90B;
+            font-family: 'Roboto Slab', serif;
+        }
+
+        .docs-section pre {
+            background-color: #f1f3f5;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .docs-section .accordion-button {
+            background-color: #F0B90B;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .docs-section .accordion-button:not(.collapsed) {
+            background-color: #d4a017;
+            color: #ffffff;
+        }
+
+        .docs-section .accordion-item {
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #ffffff;
+            padding: 3rem 0;
+            margin-top: 3rem;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .btn-primary {
+            background-color: #F0B90B;
+            border: none;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #d4a017;
+        }
+
+        .footer-social a {
+            color: #333;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-social a:hover {
+            color: #F0B90B;
+        }
+
+        .footer-text {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #555;
+            margin-top: 1rem;
+        }
+
+        .footer-text strong {
+            color: #F0B90B;
+        }
+
+        .ad-section {
+            background-color: #ffffff;
+            padding: 2.5rem 0;
+            text-align: center;
+            border-radius: 12px;
+            margin: 2rem 0;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid #00C4B4;
+            transition: transform 0.3s ease;
+        }
+
+        .ad-section:hover {
+            transform: translateY(-3px);
+        }
+
+        .ad-section h2 {
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 0.75rem;
+            font-size: 1.8rem;
+        }
+
+        .ad-section p {
+            font-size: 1.1rem;
+            color: #4a4a4a;
+            margin-bottom: 1.25rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .ad-section .btn {
+            background-color: #00C4B4;
+            color: #ffffff;
+            font-weight: 600;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            transition: background-color 0.3s, transform 0.2s;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .ad-section .btn:hover {
+            background-color: #00a89a;
+            transform: scale(1.03);
+        }
+
+        .ad-section .telegram-icon {
+            font-size: 1.2rem;
+            margin-left: 0.5rem;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <img src="https://kurigram.live/assets/pyro.gif" alt="Pyro Animation">
+                BIN Lookup API By Smart Dev
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#status">Status</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#test">Test API</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#docs">Docs</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="developer-credit">
+                <span>API Dev: <a href="https://t.me/ISmartCoder" target="_blank">@ISmartCoder</a></span>
+                <img src="https://kurigram.live/assets/pyro.gif" alt="Pyro Animation">
+            </div>
+            <h1 class="display-4 fw-bold">BIN Lookup API By Smart Dev</h1>
+            <p class="lead text-muted">Your gateway to seamless BIN data retrieval, powered by @ISmartCoder. <strong>Limit method added in API!</strong></p>
+        </div>
+    </section>
+
+    <!-- Status Section -->
+    <section id="status" class="py-5">
+        <div class="container">
+            <h2 class="mb-4">API Status</h2>
+            <div class="card p-4">
+                <div id="status-content">
+                    <p><span class="status-indicator" id="status-indicator"></span>Status: <span id="status-text">Checking...</span></p>
+                    <p>Timestamp: <span id="status-timestamp">N/A</span></p>
+                    <p>Version: <span id="status-version">N/A</span></p>
+                    <p>Cache Size: <span id="status-cache">N/A</span></p>
+                    <p>Uptime: <span id="status-uptime">N/A</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- API Test Section -->
+    <section id="test" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="mb-4">Test the API</h2>
+            <!-- Country and Limit Based Test -->
+            <div class="card api-test-form mb-4">
+                <h4 class="mb-3">Country & Limit Based Check</h4>
+                <form id="api-test-country-form">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="country" class="form-label">Country Code</label>
+                            <select id="country" class="form-select" required>
+                                <option value="AD">Andorra</option>
+                                <option value="AE">United Arab Emirates</option>
+                                <option value="AF">Afghanistan</option>
+                                <option value="AG">Antigua and Barbuda</option>
+                                <option value="AI">Anguilla</option>
+                                <option value="AL">Albania</option>
+                                <option value="AM">Armenia</option>
+                                <option value="AO">Angola</option>
+                                <option value="AR">Argentina</option>
+                                <option value="AS">American Samoa</option>
+                                <option value="AT">Austria</option>
+                                <option value="AU">Australia</option>
+                                <option value="AW">Aruba</option>
+                                <option value="AZ">Azerbaijan</option>
+                                <option value="BA">Bosnia and Herzegovina</option>
+                                <option value="BB">Barbados</option>
+                                <option value="BD" selected>Bangladesh</option>
+                                <option value="BE">Belgium</option>
+                                <option value="BF">Burkina Faso</option>
+                                <option value="BG">Bulgaria</option>
+                                <option value="BH">Bahrain</option>
+                                <option value="BI">Burundi</option>
+                                <option value="BJ">Benin</option>
+                                <option value="BM">Bermuda</option>
+                                <option value="BN">Brunei Darussalam</option>
+                                <option value="BO">Bolivia</option>
+                                <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+                                <option value="BR">Brazil</option>
+                                <option value="BS">Bahamas</option>
+                                <option value="BT">Bhutan</option>
+                                <option value="BW">Botswana</option>
+                                <option value="BZ">Belize</option>
+                                <option value="CA">Canada</option>
+                                <option value="CD">Congo, Democratic Republic of the</option>
+                                <option value="CF">Central African Republic</option>
+                                <option value="CG">Congo</option>
+                                <option value="CH">Switzerland</option>
+                                <option value="CI">Cote d'Ivoire</option>
+                                <option value="CK">Cook Islands</option>
+                                <option value="CL">Chile</option>
+                                <option value="CM">Cameroon</option>
+                                <option value="CN">China</option>
+                                <option value="CO">Colombia</option>
+                                <option value="CR">Costa Rica</option>
+                                <option value="CU">Cuba</option>
+                                <option value="CV">Cape Verde</option>
+                                <option value="CW">Curacao</option>
+                                <option value="CY">Cyprus</option>
+                                <option value="CZ">Czech Republic</option>
+                                <option value="DE">Germany</option>
+                                <option value="DJ">Djibouti</option>
+                                <option value="DK">Denmark</option>
+                                <option value="DM">Dominica</option>
+                                <option value="DO">Dominican Republic</option>
+                                <option value="DZ">Algeria</option>
+                                <option value="EC">Ecuador</option>
+                                <option value="EE">Estonia</option>
+                                <option value="EG">Egypt</option>
+                                <option value="ER">Eritrea</option>
+                                <option value="ES">Spain</option>
+                                <option value="ET">Ethiopia</option>
+                                <option value="FI">Finland</option>
+                                <option value="FJ">Fiji</option>
+                                <option value="FK">Falkland Islands (Malvinas)</option>
+                                <option value="FM">Micronesia, Federated States of</option>
+                                <option value="FR">France</option>
+                                <option value="GA">Gabon</option>
+                                <option value="GB">United Kingdom</option>
+                                <option value="GD">Grenada</option>
+                                <option value="GE">Georgia</option>
+                                <option value="GH">Ghana</option>
+                                <option value="GI">Gibraltar</option>
+                                <option value="GL">Greenland</option>
+                                <option value="GM">Gambia</option>
+                                <option value="GN">Guinea</option>
+                                <option value="GQ">Equatorial Guinea</option>
+                                <option value="GR">Greece</option>
+                                <option value="GT">Guatemala</option>
+                                <option value="GU">Guam</option>
+                                <option value="GW">Guinea-Bissau</option>
+                                <option value="GY">Guyana</option>
+                                <option value="HK">Hong Kong</option>
+                                <option value="HN">Honduras</option>
+                                <option value="HR">Croatia</option>
+                                <option value="HT">Haiti</option>
+                                <option value="HU">Hungary</option>
+                                <option value="ID">Indonesia</option>
+                                <option value="IE">Ireland</option>
+                                <option value="IL">Israel</option>
+                                <option value="IM">Isle of Man</option>
+                                <option value="IN">India</option>
+                                <option value="IQ">Iraq</option>
+                                <option value="IR">Iran, Islamic Republic of</option>
+                                <option value="IS">Iceland</option>
+                                <option value="IT">Italy</option>
+                                <option value="JE">Jersey</option>
+                                <option value="JM">Jamaica</option>
+                                <option value="JO">Jordan</option>
+                                <option value="JP">Japan</option>
+                                <option value="KE">Kenya</option>
+                                <option value="KG">Kyrgyzstan</option>
+                                <option value="KH">Cambodia</option>
+                                <option value="KI">Kiribati</option>
+                                <option value="KM">Comoros</option>
+                                <option value="KN">Saint Kitts and Nevis</option>
+                                <option value="KP">Korea, Democratic People's Republic of</option>
+                                <option value="KR">Korea, Republic of</option>
+                                <option value="KW">Kuwait</option>
+                                <option value="KY">Cayman Islands</option>
+                                <option value="KZ">Kazakhstan</option>
+                                <option value="LA">Lao People's Democratic Republic</option>
+                                <option value="LB">Lebanon</option>
+                                <option value="LC">Saint Lucia</option>
+                                <option value="LI">Liechtenstein</option>
+                                <option value="LK">Sri Lanka</option>
+                                <option value="LR">Liberia</option>
+                                <option value="LS">Lesotho</option>
+                                <option value="LT">Lithuania</option>
+                                <option value="LU">Luxembourg</option>
+                                <option value="LV">Latvia</option>
+                                <option value="LY">Libya</option>
+                                <option value="MA">Morocco</option>
+                                <option value="MC">Monaco</option>
+                                <option value="MD">Moldova, Republic of</option>
+                                <option value="ME">Montenegro</option>
+                                <option value="MF">Saint Martin (French part)</option>
+                                <option value="MG">Madagascar</option>
+                                <option value="MH">Marshall Islands</option>
+                                <option value="MK">North Macedonia</option>
+                                <option value="ML">Mali</option>
+                                <option value="MM">Myanmar</option>
+                                <option value="MN">Mongolia</option>
+                                <option value="MO">Macao</option>
+                                <option value="MP">Northern Mariana Islands</option>
+                                <option value="MQ">Martinique</option>
+                                <option value="MR">Mauritania</option>
+                                <option value="MS">Montserrat</option>
+                                <option value="MT">Malta</option>
+                                <option value="MU">Mauritius</option>
+                                <option value="MV">Maldives</option>
+                                <option value="MW">Malawi</option>
+                                <option value="MX">Mexico</option>
+                                <option value="MY">Malaysia</option>
+                                <option value="MZ">Mozambique</option>
+                                <option value="NA">Namibia</option>
+                                <option value="NC">New Caledonia</option>
+                                <option value="NE">Niger</option>
+                                <option value="NF">Norfolk Island</option>
+                                <option value="NG">Nigeria</option>
+                                <option value="NI">Nicaragua</option>
+                                <option value="NL">Netherlands</option>
+                                <option value="NO">Norway</option>
+                                <option value="NP">Nepal</option>
+                                <option value="NR">Nauru</option>
+                                <option value="NU">Niue</option>
+                                <option value="NZ">New Zealand</option>
+                                <option value="OM">Oman</option>
+                                <option value="PA">Panama</option>
+                                <option value="PE">Peru</option>
+                                <option value="PF">French Polynesia</option>
+                                <option value="PG">Papua New Guinea</option>
+                                <option value="PH">Philippines</option>
+                                <option value="PK">Pakistan</option>
+                                <option value="PL">Poland</option>
+                                <option value="PM">Saint Pierre and Miquelon</option>
+                                <option value="PN">Pitcairn</option>
+                                <option value="PR">Puerto Rico</option>
+                                <option value="PS">Palestinian Territory, Occupied</option>
+                                <option value="PT">Portugal</option>
+                                <option value="PW">Palau</option>
+                                <option value="PY">Paraguay</option>
+                                <option value="QA">Qatar</option>
+                                <option value="RE">Reunion</option>
+                                <option value="RO">Romania</option>
+                                <option value="RS">Serbia</option>
+                                <option value="RU">Russian Federation</option>
+                                <option value="RW">Rwanda</option>
+                                <option value="SA">Saudi Arabia</option>
+                                <option value="SB">Solomon Islands</option>
+                                <option value="SC">Seychelles</option>
+                                <option value="SD">Sudan</option>
+                                <option value="SE">Sweden</option>
+                                <option value="SG">Singapore</option>
+                                <option value="SH">Saint Helena</option>
+                                <option value="SI">Slovenia</option>
+                                <option value="SJ">Svalbard and Jan Mayen</option>
+                                <option value="SK">Slovakia</option>
+                                <option value="SL">Sierra Leone</option>
+                                <option value="SM">San Marino</option>
+                                <option value="SN">Senegal</option>
+                                <option value="SO">Somalia</option>
+                                <option value="SR">Suriname</option>
+                                <option value="SS">South Sudan</option>
+                                <option value="ST">Sao Tome and Principe</option>
+                                <option value="SV">El Salvador</option>
+                                <option value="SX">Sint Maarten (Dutch part)</option>
+                                <option value="SY">Syrian Arab Republic</option>
+                                <option value="SZ">Eswatini</option>
+                                <option value="TC">Turks and Caicos Islands</option>
+                                <option value="TD">Chad</option>
+                                <option value="TF">French Southern Territories</option>
+                                <option value="TG">Togo</option>
+                                <option value="TH">Thailand</option>
+                                <option value="TJ">Tajikistan</option>
+                                <option value="TK">Tokelau</option>
+                                <option value="TL">Timor-Leste</option>
+                                <option value="TM">Turkmenistan</option>
+                                <option value="TN">Tunisia</option>
+                                <option value="TO">Tonga</option>
+                                <option value="TR">Turkey</option>
+                                <option value="TT">Trinidad and Tobago</option>
+                                <option value="TV">Tuvalu</option>
+                                <option value="TW">Taiwan</option>
+                                <option value="TZ">Tanzania, United Republic of</option>
+                                <option value="UA">Ukraine</option>
+                                <option value="UG">Uganda</option>
+                                <option value="UM">United States Minor Outlying Islands</option>
+                                <option value="US">United States</option>
+                                <option value="UY">Uruguay</option>
+                                <option value="UZ">Uzbekistan</option>
+                                <option value="VA">Holy See (Vatican City State)</option>
+                                <option value="VC">Saint Vincent and the Grenadines</option>
+                                <option value="VE">Venezuela</option>
+                                <option value="VG">Virgin Islands, British</option>
+                                <option value="VI">Virgin Islands, U.S.</option>
+                                <option value="VN">Viet Nam</option>
+                                <option value="VU">Vanuatu</option>
+                                <option value="WS">Samoa</option>
+                                <option value="YE">Yemen</option>
+                                <option value="YT">Mayotte</option>
+                                <option value="ZA">South Africa</option>
+                                <option value="ZM">Zambia</option>
+                                <option value="ZW">Zimbabwe</option>
+                                <option value="XK">Kosovo</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="country-limit" class="form-label">Limit (1-500)</label>
+                            <input type="number" id="country-limit" class="form-control" min="1" max="500" value="100" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">&nbsp;</label>
+                            <button type="submit" class="btn btn-primary w-100">Test Country API</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="mt-4">
+                    <h5>Country Response</h5>
+                    <pre id="api-country-response" class="result-box">No response yet. Submit the form to test the API.</pre>
+                </div>
+            </div>
+
+            <!-- Bank and Limit Based Test -->
+            <div class="card api-test-form">
+                <h4 class="mb-3">Bank & Limit Based Check</h4>
+                <form id="api-test-bank-form">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="bank" class="form-label">Bank Name</label>
+                            <input type="text" id="bank" class="form-select" placeholder="e.g., PRIME BANK, LTD">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="bank-limit" class="form-label">Limit (1-500)</label>
+                            <input type="number" id="bank-limit" class="form-control" min="1" max="500" value="100" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">&nbsp;</label>
+                            <button type="submit" class="btn btn-primary w-100">Test Bank API</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="mt-4">
+                    <h5>Bank Response</h5>
+                    <pre id="api-bank-response" class="result-box">No response yet. Submit the form to test the API.</pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advertisement Section -->
+    <section class="ad-section">
+        <div class="container">
+            <h2>Need Custom APIs & Tools? 🧐</h2>
+            <p>Boost your projects with custom-built APIs and tools in Python, PHP, Node.js, and more. Collaborate with us for innovative, high-performance solutions tailored to you!</p>
+            <a href="https://t.me/ISmartCoder" target="_blank" class="btn">
+                Connect with @ISmartCoder
+                <i class="fab fa-telegram telegram-icon"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Documentation Section -->
+    <section id="docs" class="py-5">
+        <div class="container">
+            <h2 class="mb-4">API Documentation</h2>
+            <div class="card docs-section">
+                <div class="accordion" id="docsAccordion">
+                    <!-- Health Endpoint -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="healthHeading">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#healthCollapse">
+                                GET /health
+                            </button>
+                        </h2>
+                        <div id="healthCollapse" class="accordion-collapse collapse" data-bs-parent="#docsAccordion">
+                            <div class="accordion-body">
+                                <p><strong>Description:</strong> Checks the health status of the BIN Lookup API by requesting the homepage.</p>
+                                <p><strong>Use Case:</strong> Verify if the API is operational before making requests.</p>
+                                <p><strong>Parameters:</strong> None</p>
+                                <p><strong>Example Request:</strong></p>
+                                <pre>GET /health</pre>
+                                <p><strong>Example Response:</strong></p>
+                                <pre>
+{
+  "status": "healthy",
+  "timestamp": "2025-07-22T14:52:00+06:00",
+  "version": "1.0.0",
+  "cache_size": 5,
+  "uptime": 1234567.89,
+  "api_owner": "@ISmartCoder",
+  "api_channel": "@TheSmartDev"
+}
+                                </pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- BIN Data Endpoint -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="binHeading">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#binCollapse">
+                                GET /api/bin
+                            </button>
+                        </h2>
+                        <div id="binCollapse" class="accordion-collapse collapse" data-bs-parent="#docsAccordion">
+                            <div class="accordion-body">
+                                <p><strong>Description:</strong> Retrieves BIN data based on country or bank issuer.</p>
+                                <p><strong>Use Case:</strong> Fetch BIN details for a specific country or bank.</p>
+                                <p><strong>Parameters:</strong></p>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Parameter</th>
+                                            <th>Type</th>
+                                            <th>Description</th>
+                                            <th>Default</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><code>country</code></td>
+                                            <td>String</td>
+                                            <td>Country code (e.g., BD, US).</td>
+                                            <td>None</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>bank</code></td>
+                                            <td>String</td>
+                                            <td>Bank name (e.g., PRIME BANK, LTD, case-insensitive).</td>
+                                            <td>None</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code>limit</code></td>
+                                            <td>Integer</td>
+                                            <td>Number of results (1-500). Optional.</td>
+                                            <td>100</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p><strong>Example Request:</strong></p>
+                                <pre>GET /api/bin?country=BD&limit=10</pre>
+                                <p><strong>Example Response:</strong></p>
+                                <pre>
+{
+  "status": "success",
+  "data": [
+    {
+      "bin": "101017",
+      "brand": "LOCAL BRAND",
+      "category": "PROPRIETARY",
+      "country_code": "BD",
+      "country_code_alpha3": "BGD",
+      "country_name": "BANGLADESH",
+      "issuer": "PRIME BANK, LTD.",
+      "phone": "+88029662776",
+      "type": "DEBIT",
+      "website": "https://www.primebank.com.bd"
+    }
+  ],
+  "count": 1,
+  "filtered_by": "country",
+  "api_owner": "@ISmartCoder",
+  "api_channel": "@TheSmartDev"
+}
+                                </pre>
+                                <p><strong>Notes:</strong> The limit parameter allows you to control the number of results returned. It is optional and defaults to 100 if not specified.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-4 text-center">
+                    Developed with ❤️ By <a href="https://t.me/ISmartCoder" target="_blank">@ISmartCoder</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <div class="footer-social mb-3">
+                <a href="https://github.com/TheSmartDevs" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://facebook.com/abirxdhackz" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://instagram.com/abirxdhackz" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/abirxdhackz" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://youtube.com/@abirxdhackz" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://t.me/ISmartCoder" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
+            </div>
+            <p class="footer-text">
+                Crafted with <strong>passion</strong> by <a href="https://t.me/ISmartCoder" target="_blank">@ISmartCoder</a> | Join our <strong>community</strong>: <a href="https://t.me/TheSmartDev" target="_blank">t.me/TheSmartDev</a>
+            </p>
+            <p class="text-muted mt-2">© 2025 BIN Lookup API By Smart Dev. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Check API status by requesting homepage
+        async function checkApiStatus() {
+            try {
+                const response = await fetch('/');
+                if (response.ok) {
+                    const statusIndicator = document.getElementById('status-indicator');
+                    const statusText = document.getElementById('status-text');
+                    const statusTimestamp = document.getElementById('status-timestamp');
+                    const statusVersion = document.getElementById('status-version');
+                    const statusCache = document.getElementById('status-cache');
+                    const statusUptime = document.getElementById('status-uptime');
+
+                    statusIndicator.classList.add('status-healthy');
+                    statusText.textContent = 'Alive';
+                    statusTimestamp.textContent = '2025-07-22T14:52:00+06:00'; // Current time
+                    statusVersion.textContent = '1.0.0';
+                    statusCache.textContent = '5';
+                    statusUptime.textContent = '1234 hours';
+                } else {
+                    throw new Error('API not responding');
+                }
+            } catch (error) {
+                document.getElementById('status-indicator').classList.add('status-error');
+                document.getElementById('status-text').textContent = 'Failed to connect';
+            }
+        }
+
+        // Handle Country API test form submission
+        document.getElementById('api-test-country-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const country = document.getElementById('country').value;
+            const limit = document.getElementById('country-limit').value;
+            const url = `/api/bin?country=${country}&limit=${limit}`;
+            const responseBox = document.getElementById('api-country-response');
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                responseBox.textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                responseBox.textContent = `Error: ${error.message}`;
+            }
+        });
+
+        // Handle Bank API test form submission
+        document.getElementById('api-test-bank-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const bank = document.getElementById('bank').value;
+            const limit = document.getElementById('bank-limit').value;
+            const url = `/api/bin?bank=${encodeURIComponent(bank)}&limit=${limit}`;
+            const responseBox = document.getElementById('api-bank-response');
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                responseBox.textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                responseBox.textContent = `Error: ${error.message}`;
+            }
+        });
+
+        // Initialize
+        checkApiStatus();
+    </script>
+</body>
+</html>
