@@ -1,0 +1,26 @@
+[
+    {
+        "bin": "444428",
+        "brand": "VISA",
+        "type": "CREDIT",
+        "category": "CLASSIC",
+        "issuer": "INTL HDQTRS-CENTER OWNED",
+        "phone": "",
+        "website": "",
+        "country_code": "CU",
+        "country_code_alpha3": "CUB",
+        "country_name": "CUBA"
+    },
+    {
+        "bin": "919212",
+        "brand": "PRIVATE LABEL",
+        "type": "DEBIT",
+        "category": "",
+        "issuer": "BANCO FINANCIERO INTERNACIONAL",
+        "phone": "",
+        "website": "",
+        "country_code": "CU",
+        "country_code_alpha3": "CUB",
+        "country_name": "CUBA"
+    }
+]

@@ -1,0 +1,74 @@
+[
+    {
+        "bin": "408048",
+        "brand": "VISA",
+        "type": "DEBIT",
+        "category": "GOLD",
+        "issuer": "BGFIBANK CENTRAFRIQUE",
+        "phone": "",
+        "website": "",
+        "country_code": "CF",
+        "country_code_alpha3": "CAF",
+        "country_name": "CENTRAL AFRICAN REPUBLIC"
+    },
+    {
+        "bin": "408142",
+        "brand": "VISA",
+        "type": "DEBIT",
+        "category": "CLASSIC",
+        "issuer": "ECOBANK CENTRAFRIQUE",
+        "phone": "",
+        "website": "",
+        "country_code": "CF",
+        "country_code_alpha3": "CAF",
+        "country_name": "CENTRAL AFRICAN REPUBLIC"
+    },
+    {
+        "bin": "433804",
+        "brand": "VISA",
+        "type": "DEBIT",
+        "category": "PREPAID BUSINESS",
+        "issuer": "ECOBANK CENTRAFRIQUE",
+        "phone": "",
+        "website": "",
+        "country_code": "CF",
+        "country_code_alpha3": "CAF",
+        "country_name": "CENTRAL AFRICAN REPUBLIC"
+    },
+    {
+        "bin": "464114",
+        "brand": "VISA",
+        "type": "DEBIT",
+        "category": "GOLD/PLATINUM",
+        "issuer": "ECOBANK CENTRAFRIQUE",
+        "phone": "",
+        "website": "",
+        "country_code": "CF",
+        "country_code_alpha3": "CAF",
+        "country_name": "CENTRAL AFRICAN REPUBLIC"
+    },
+    {
+        "bin": "481448",
+        "brand": "VISA",
+        "type": "DEBIT",
+        "category": "PREPAID CLASSIC",
+        "issuer": "ECOBANK CENTRAFRIQUE",
+        "phone": "",
+        "website": "",
+        "country_code": "CF",
+        "country_code_alpha3": "CAF",
+        "country_name": "CENTRAL AFRICAN REPUBLIC"
+    },
+    {
+        "bin": "532517",
+        "brand": "MASTERCARD",
+        "type": "DEBIT",
+        "category": "STANDARD",
+        "issuer": "ECOBANK NIGERIA PLC",
+        "phone": "",
+        "website": "http://www.ecobank.com",
+        "country_code": "CF",
+        "country_code_alpha3": "CAF",
+        "country_name": "CENTRAL AFRICAN REPUBLIC"
+    }
+]
