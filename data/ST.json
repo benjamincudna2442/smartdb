@@ -1,0 +1,98 @@
+[
+    {
+        "bin": "428070",
+        "brand": "VISA",
+        "type": "DEBIT",
+        "category": "SIGNATURE",
+        "issuer": "BANCO INTERNACIONAL DE S O TOM E PR NCIPE",
+        "phone": "",
+        "website": "",
+        "country_code": "ST",
+        "country_code_alpha3": "STP",
+        "country_name": "SAO TOME AND PRINCIPE"
+    },
+    {
+        "bin": "457750",
+        "brand": "VISA",
+        "type": "DEBIT",
+        "category": "PREPAID CLASSIC",
+        "issuer": "BANCO INTERNACIONAL DE S O TOM E PR NCIPE",
+        "phone": "",
+        "website": "",
+        "country_code": "ST",
+        "country_code_alpha3": "STP",
+        "country_name": "SAO TOME AND PRINCIPE"
+    },
+    {
+        "bin": "513115",
+        "brand": "MASTERCARD",
+        "type": "CREDIT",
+        "category": "STANDARD",
+        "issuer": "AFRILAND FIRST BANK",
+        "phone": "",
+        "website": "",
+        "country_code": "ST",
+        "country_code_alpha3": "STP",
+        "country_name": "SAO TOME AND PRINCIPE"
+    },
+    {
+        "bin": "967802",
+        "brand": "LOCAL BRAND",
+        "type": "DEBIT",
+        "category": "",
+        "issuer": "BANCO INTERNACIONAL DE SAO TOME E PRINCIPE",
+        "phone": "",
+        "website": "",
+        "country_code": "ST",
+        "country_code_alpha3": "STP",
+        "country_name": "SAO TOME AND PRINCIPE"
+    },
+    {
+        "bin": "967803",
+        "brand": "LOCAL BRAND",
+        "type": "DEBIT",
+        "category": "",
+        "issuer": "AFRILAND FIRST BANK",
+        "phone": "",
+        "website": "",
+        "country_code": "ST",
+        "country_code_alpha3": "STP",
+        "country_name": "SAO TOME AND PRINCIPE"
+    },
+    {
+        "bin": "967808",
+        "brand": "LOCAL BRAND",
+        "type": "DEBIT",
+        "category": "",
+        "issuer": "ECOBANK",
+        "phone": "",
+        "website": "",
+        "country_code": "ST",
+        "country_code_alpha3": "STP",
+        "country_name": "SAO TOME AND PRINCIPE"
+    },
+    {
+        "bin": "967810",
+        "brand": "LOCAL BRAND",
+        "type": "DEBIT",
+        "category": "",
+        "issuer": "ENERGY BANK SAO TOME E PRINCIPE",
+        "phone": "",
+        "website": "",
+        "country_code": "ST",
+        "country_code_alpha3": "STP",
+        "country_name": "SAO TOME AND PRINCIPE"
+    },
+    {
+        "bin": "967811",
+        "brand": "LOCAL BRAND",
+        "type": "DEBIT",
+        "category": "",
+        "issuer": "BGFIBANK",
+        "phone": "",
+        "website": "",
+        "country_code": "ST",
+        "country_code_alpha3": "STP",
+        "country_name": "SAO TOME AND PRINCIPE"
+    }
+]
