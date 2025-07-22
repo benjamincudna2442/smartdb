@@ -1,0 +1,50 @@
+[
+    {
+        "bin": "458738",
+        "brand": "VISA",
+        "type": "DEBIT",
+        "category": "CLASSIC",
+        "issuer": "INTL HDQTRS-CENTER OWNED",
+        "phone": "",
+        "website": "",
+        "country_code": "MH",
+        "country_code_alpha3": "MHL",
+        "country_name": "MARSHALL ISLANDS"
+    },
+    {
+        "bin": "458739",
+        "brand": "VISA",
+        "type": "DEBIT",
+        "category": "CLASSIC",
+        "issuer": "INTL HDQTRS-CENTER OWNED",
+        "phone": "",
+        "website": "",
+        "country_code": "MH",
+        "country_code_alpha3": "MHL",
+        "country_name": "MARSHALL ISLANDS"
+    },
+    {
+        "bin": "470163",
+        "brand": "VISA",
+        "type": "CREDIT",
+        "category": "",
+        "issuer": "FIFTH THIRD BANK",
+        "phone": "",
+        "website": "https://www.53.com",
+        "country_code": "MH",
+        "country_code_alpha3": "MHL",
+        "country_name": "MARSHALL ISLANDS"
+    },
+    {
+        "bin": "483785",
+        "brand": "VISA",
+        "type": "DEBIT",
+        "category": "",
+        "issuer": "BANK OF GUAM",
+        "phone": "",
+        "website": "http://www.bankofguam.com",
+        "country_code": "MH",
+        "country_code_alpha3": "MHL",
+        "country_name": "MARSHALL ISLANDS"
+    }
+]

@@ -1,0 +1,38 @@
+[
+    {
+        "bin": "437607",
+        "brand": "VISA",
+        "type": "CREDIT",
+        "category": "",
+        "issuer": "",
+        "phone": "",
+        "website": "",
+        "country_code": "IM",
+        "country_code_alpha3": "IMN",
+        "country_name": "ISLE OF MAN"
+    },
+    {
+        "bin": "441042",
+        "brand": "VISA",
+        "type": "CREDIT",
+        "category": "",
+        "issuer": "",
+        "phone": "",
+        "website": "",
+        "country_code": "IM",
+        "country_code_alpha3": "IMN",
+        "country_name": "ISLE OF MAN"
+    },
+    {
+        "bin": "575712",
+        "brand": "MAESTRO",
+        "type": "DEBIT",
+        "category": "STANDARD",
+        "issuer": "MAESTRO INTERNATIONAL",
+        "phone": "",
+        "website": "https://brand.mastercard.com",
+        "country_code": "IM",
+        "country_code_alpha3": "IMN",
+        "country_name": "ISLE OF MAN"
+    }
+]

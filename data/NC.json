@@ -1,0 +1,26 @@
+[
+    {
+        "bin": "432802",
+        "brand": "VISA",
+        "type": "DEBIT",
+        "category": "CLASSIC",
+        "issuer": "XPOLLENS",
+        "phone": "",
+        "website": "",
+        "country_code": "NC",
+        "country_code_alpha3": "NCL",
+        "country_name": "NEW CALEDONIA"
+    },
+    {
+        "bin": "499034",
+        "brand": "VISA",
+        "type": "DEBIT",
+        "category": "CLASSIC",
+        "issuer": "XPOLLENS",
+        "phone": "",
+        "website": "",
+        "country_code": "NC",
+        "country_code_alpha3": "NCL",
+        "country_name": "NEW CALEDONIA"
+    }
+]

@@ -1,0 +1,62 @@
+[
+    {
+        "bin": "437968",
+        "brand": "VISA",
+        "type": "DEBIT",
+        "category": "CLASSIC",
+        "issuer": "AUSTRALIA AND NEW ZEALAND BANKING GROUP, LTD.",
+        "phone": "",
+        "website": "",
+        "country_code": "KI",
+        "country_code_alpha3": "KIR",
+        "country_name": "KIRIBATI"
+    },
+    {
+        "bin": "437969",
+        "brand": "VISA",
+        "type": "DEBIT",
+        "category": "GOLD",
+        "issuer": "BANK OF KIRIBATI, LTD.",
+        "phone": "+68621095 / +68681224",
+        "website": "http://www.anz.com",
+        "country_code": "KI",
+        "country_code_alpha3": "KIR",
+        "country_name": "KIRIBATI"
+    },
+    {
+        "bin": "450587",
+        "brand": "VISA",
+        "type": "CREDIT",
+        "category": "",
+        "issuer": "BANK OF KIRIBATI, LTD.",
+        "phone": "+68621095 / +68681224",
+        "website": "http://www.anz.com",
+        "country_code": "KI",
+        "country_code_alpha3": "KIR",
+        "country_name": "KIRIBATI"
+    },
+    {
+        "bin": "465541",
+        "brand": "VISA",
+        "type": "CREDIT",
+        "category": "",
+        "issuer": "BANK OF KIRIBATI, LTD.",
+        "phone": "+68621095 / +68681224",
+        "website": "http://www.anz.com",
+        "country_code": "KI",
+        "country_code_alpha3": "KIR",
+        "country_name": "KIRIBATI"
+    },
+    {
+        "bin": "520181",
+        "brand": "MASTERCARD",
+        "type": "CREDIT",
+        "category": "STANDARD",
+        "issuer": "ANZ BANK (KIRIBATI), LTD.",
+        "phone": "",
+        "website": "",
+        "country_code": "KI",
+        "country_code_alpha3": "KIR",
+        "country_name": "KIRIBATI"
+    }
+]

@@ -1,0 +1,86 @@
+[
+    {
+        "bin": "458742",
+        "brand": "VISA",
+        "type": "DEBIT",
+        "category": "CLASSIC",
+        "issuer": "INTL HDQTRS-CENTER OWNED",
+        "phone": "",
+        "website": "",
+        "country_code": "MP",
+        "country_code_alpha3": "MNP",
+        "country_name": "NORTHERN MARIANA ISLANDS"
+    },
+    {
+        "bin": "458743",
+        "brand": "VISA",
+        "type": "DEBIT",
+        "category": "CLASSIC",
+        "issuer": "INTL HDQTRS-CENTER OWNED",
+        "phone": "",
+        "website": "",
+        "country_code": "MP",
+        "country_code_alpha3": "MNP",
+        "country_name": "NORTHERN MARIANA ISLANDS"
+    },
+    {
+        "bin": "465483",
+        "brand": "VISA",
+        "type": "DEBIT",
+        "category": "",
+        "issuer": "BANK OF AMERICA, N.A.",
+        "phone": "",
+        "website": "http://www.bankofamerica.com",
+        "country_code": "MP",
+        "country_code_alpha3": "MNP",
+        "country_name": "NORTHERN MARIANA ISLANDS"
+    },
+    {
+        "bin": "468039",
+        "brand": "VISA",
+        "type": "DEBIT",
+        "category": "",
+        "issuer": "BANK OF AMERICA, N.A.",
+        "phone": "",
+        "website": "http://www.bankofamerica.com",
+        "country_code": "MP",
+        "country_code_alpha3": "MNP",
+        "country_name": "NORTHERN MARIANA ISLANDS"
+    },
+    {
+        "bin": "470164",
+        "brand": "VISA",
+        "type": "CREDIT",
+        "category": "",
+        "issuer": "FIFTH THIRD BANK",
+        "phone": "",
+        "website": "https://www.53.com",
+        "country_code": "MP",
+        "country_code_alpha3": "MNP",
+        "country_name": "NORTHERN MARIANA ISLANDS"
+    },
+    {
+        "bin": "483782",
+        "brand": "VISA",
+        "type": "DEBIT",
+        "category": "",
+        "issuer": "BANK OF GUAM",
+        "phone": "",
+        "website": "http://www.bankofguam.com",
+        "country_code": "MP",
+        "country_code_alpha3": "MNP",
+        "country_name": "NORTHERN MARIANA ISLANDS"
+    },
+    {
+        "bin": "552949",
+        "brand": "MASTERCARD",
+        "type": "DEBIT",
+        "category": "STANDARD",
+        "issuer": "BANZPAY TECHNOLOGY, LTD.",
+        "phone": "",
+        "website": "",
+        "country_code": "MP",
+        "country_code_alpha3": "MNP",
+        "country_name": "NORTHERN MARIANA ISLANDS"
+    }
+]

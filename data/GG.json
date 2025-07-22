@@ -1,0 +1,38 @@
+[
+    {
+        "bin": "510030",
+        "brand": "MASTERCARD",
+        "type": "DEBIT",
+        "category": "PREPAID CORPORATE",
+        "issuer": "PAYSAFE FINANCIAL SERVICES, LTD.",
+        "phone": "",
+        "website": "",
+        "country_code": "GG",
+        "country_code_alpha3": "GGY",
+        "country_name": "GUERNSEY"
+    },
+    {
+        "bin": "521156",
+        "brand": "MASTERCARD",
+        "type": "CREDIT",
+        "category": "PLATINUM",
+        "issuer": "BUTTERFIELD BANK GUERNSEY, LTD.",
+        "phone": "",
+        "website": "",
+        "country_code": "GG",
+        "country_code_alpha3": "GGY",
+        "country_name": "GUERSNEY"
+    },
+    {
+        "bin": "539381",
+        "brand": "MASTERCARD",
+        "type": "DEBIT",
+        "category": "PREPAID",
+        "issuer": "PAYSAFE FINANCIAL SERVICES, LTD.",
+        "phone": "",
+        "website": "",
+        "country_code": "GG",
+        "country_code_alpha3": "GGY",
+        "country_name": "GUERNSEY"
+    }
+]

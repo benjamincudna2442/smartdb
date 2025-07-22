@@ -1,0 +1,14 @@
+[
+    {
+        "bin": "BIN",
+        "brand": "Brand",
+        "type": "Type",
+        "category": "Category",
+        "issuer": "Issuer",
+        "phone": "IssuerPhone",
+        "website": "IssuerUrl",
+        "country_code": "isoCode2",
+        "country_code_alpha3": "isoCode3",
+        "country_name": "CountryName"
+    }
+]

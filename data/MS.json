@@ -1,0 +1,62 @@
+[
+    {
+        "bin": "446432",
+        "brand": "VISA",
+        "type": "CREDIT",
+        "category": "GOLD",
+        "issuer": "",
+        "phone": "",
+        "website": "",
+        "country_code": "MS",
+        "country_code_alpha3": "MSR",
+        "country_name": "MONTSERRAT"
+    },
+    {
+        "bin": "446433",
+        "brand": "VISA",
+        "type": "CREDIT",
+        "category": "BUSINESS ENHANCED",
+        "issuer": "",
+        "phone": "",
+        "website": "",
+        "country_code": "MS",
+        "country_code_alpha3": "MSR",
+        "country_name": "MONTSERRAT"
+    },
+    {
+        "bin": "448714",
+        "brand": "VISA",
+        "type": "CREDIT",
+        "category": "",
+        "issuer": "BARCLAYS BANK PLC",
+        "phone": "(809) 82571",
+        "website": "http://www.barclays.co.uk",
+        "country_code": "MS",
+        "country_code_alpha3": "MSR",
+        "country_name": "MONTSERRAT"
+    },
+    {
+        "bin": "521520",
+        "brand": "MASTERCARD",
+        "type": "CREDIT",
+        "category": "STANDARD",
+        "issuer": "ROYAL BANK OF CANADA",
+        "phone": "",
+        "website": "http://www.rbc.com",
+        "country_code": "MS",
+        "country_code_alpha3": "MSR",
+        "country_name": "MONTSERRAT"
+    },
+    {
+        "bin": "557617",
+        "brand": "MASTERCARD",
+        "type": "DEBIT",
+        "category": "PLATINUM",
+        "issuer": "SGB TRUST INC.",
+        "phone": "",
+        "website": "",
+        "country_code": "MS",
+        "country_code_alpha3": "MSR",
+        "country_name": "MONTSERRAT"
+    }
+]

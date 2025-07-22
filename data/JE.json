@@ -1,0 +1,38 @@
+[
+    {
+        "bin": "524410",
+        "brand": "MASTERCARD",
+        "type": "CREDIT",
+        "category": "CORPORATE",
+        "issuer": "BUTTERFIELD BANK GUERNSEY, LTD.",
+        "phone": "",
+        "website": "",
+        "country_code": "JE",
+        "country_code_alpha3": "JEY",
+        "country_name": "JERSEY"
+    },
+    {
+        "bin": "557431",
+        "brand": "MASTERCARD",
+        "type": "DEBIT",
+        "category": "PLATINUM",
+        "issuer": "CITIBANK, N.A., JERSEY BRANCH",
+        "phone": "",
+        "website": "",
+        "country_code": "JE",
+        "country_code_alpha3": "JEY",
+        "country_name": "JERSEY"
+    },
+    {
+        "bin": "557432",
+        "brand": "MASTERCARD",
+        "type": "DEBIT",
+        "category": "WORLD",
+        "issuer": "CITIBANK, N.A., JERSEY BRANCH",
+        "phone": "",
+        "website": "",
+        "country_code": "JE",
+        "country_code_alpha3": "JEY",
+        "country_name": "JERSEY"
+    }
+]

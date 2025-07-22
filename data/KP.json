@@ -1,0 +1,26 @@
+[
+    {
+        "bin": "403315",
+        "brand": "VISA",
+        "type": "CREDIT",
+        "category": "",
+        "issuer": "CITIBANK KOREA, INC.",
+        "phone": "",
+        "website": "http://www.citibank.co.kr",
+        "country_code": "KP",
+        "country_code_alpha3": "PRK",
+        "country_name": "KOREA, DEMOCRATIC PEOPLE'S REPUBLIC OF"
+    },
+    {
+        "bin": "407386",
+        "brand": "VISA",
+        "type": "CREDIT",
+        "category": "",
+        "issuer": "KOOKMIN BANK SOUTH",
+        "phone": "",
+        "website": "",
+        "country_code": "KP",
+        "country_code_alpha3": "PRK",
+        "country_name": "KOREA, DEMOCRATIC PEOPLE'S REPUBLIC OF"
+    }
+]

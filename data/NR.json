@@ -1,0 +1,14 @@
+[
+    {
+        "bin": "551344",
+        "brand": "MASTERCARD",
+        "type": "DEBIT",
+        "category": "STANDARD",
+        "issuer": "BENDIGO AND ADELAIDE BANK, LTD.",
+        "phone": "",
+        "website": "http://www.bendigobank.com.au",
+        "country_code": "NR",
+        "country_code_alpha3": "NRU",
+        "country_name": "NAURU"
+    }
+]
