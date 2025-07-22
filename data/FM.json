@@ -1,0 +1,50 @@
+[
+    {
+        "bin": "451755",
+        "brand": "VISA",
+        "type": "DEBIT",
+        "category": "CLASSIC",
+        "issuer": "BANK OF THE FEDERATED STATES OF MICRONESIA",
+        "phone": "",
+        "website": "",
+        "country_code": "FM",
+        "country_code_alpha3": "FSM",
+        "country_name": "MICRONESIA, FEDERATED STATES OF"
+    },
+    {
+        "bin": "466569",
+        "brand": "VISA",
+        "type": "DEBIT",
+        "category": "",
+        "issuer": "FIFTH THIRD BANK",
+        "phone": "",
+        "website": "https://www.53.com",
+        "country_code": "FM",
+        "country_code_alpha3": "FSM",
+        "country_name": "MICRONESIA, FEDERATED STATES OF"
+    },
+    {
+        "bin": "472627",
+        "brand": "VISA",
+        "type": "DEBIT",
+        "category": "CLASSIC",
+        "issuer": "BANK OF THE FEDERATED STATES OF MICRONESIA",
+        "phone": "",
+        "website": "",
+        "country_code": "FM",
+        "country_code_alpha3": "FSM",
+        "country_name": "MICRONESIA, FEDERATED STATES OF"
+    },
+    {
+        "bin": "483784",
+        "brand": "VISA",
+        "type": "DEBIT",
+        "category": "",
+        "issuer": "BANK OF GUAM",
+        "phone": "",
+        "website": "http://www.bankofguam.com",
+        "country_code": "FM",
+        "country_code_alpha3": "FSM",
+        "country_name": "MICRONESIA, FEDERATED STATES OF"
+    }
+]

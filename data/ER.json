@@ -1,0 +1,26 @@
+[
+    {
+        "bin": "412348",
+        "brand": "VISA",
+        "type": "DEBIT",
+        "category": "CLASSIC",
+        "issuer": "INTL HDQTRS-CENTER OWNED",
+        "phone": "",
+        "website": "",
+        "country_code": "ER",
+        "country_code_alpha3": "ERI",
+        "country_name": "ERITREA"
+    },
+    {
+        "bin": "412349",
+        "brand": "VISA",
+        "type": "CREDIT",
+        "category": "CLASSIC",
+        "issuer": "INTL HDQTRS-CENTER OWNED",
+        "phone": "",
+        "website": "",
+        "country_code": "ER",
+        "country_code_alpha3": "ERI",
+        "country_name": "ERITREA"
+    }
+]
