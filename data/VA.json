@@ -1,0 +1,74 @@
+[
+    {
+        "bin": "406305",
+        "brand": "VISA",
+        "type": "CREDIT",
+        "category": "CLASSIC",
+        "issuer": "ISTITUTO PER LE OPERE DI RELIGIONE",
+        "phone": "",
+        "website": "http://www.istrobanka.sk",
+        "country_code": "VA",
+        "country_code_alpha3": "VAT",
+        "country_name": "HOLY SEE (VATICAN CITY STATE)"
+    },
+    {
+        "bin": "406306",
+        "brand": "VISA",
+        "type": "CREDIT",
+        "category": "GOLD",
+        "issuer": "ISTITUTO PER LE OPERE DI RELIGIONE",
+        "phone": "",
+        "website": "http://www.istrobanka.sk",
+        "country_code": "VA",
+        "country_code_alpha3": "VAT",
+        "country_name": "HOLY SEE (VATICAN CITY STATE)"
+    },
+    {
+        "bin": "427343",
+        "brand": "VISA",
+        "type": "CREDIT",
+        "category": "BUSINESS",
+        "issuer": "ISTITUTO PER LE OPERE DI RELIGIONE",
+        "phone": "",
+        "website": "http://www.istrobanka.sk",
+        "country_code": "VA",
+        "country_code_alpha3": "VAT",
+        "country_name": "HOLY SEE (VATICAN CITY STATE)"
+    },
+    {
+        "bin": "429569",
+        "brand": "VISA",
+        "type": "CREDIT",
+        "category": "BUSINESS",
+        "issuer": "ISTITUTO PER LE OPERE DI RELIGIONE",
+        "phone": "",
+        "website": "http://www.istrobanka.sk",
+        "country_code": "VA",
+        "country_code_alpha3": "VAT",
+        "country_name": "HOLY SEE (VATICAN CITY STATE)"
+    },
+    {
+        "bin": "460326",
+        "brand": "VISA",
+        "type": "CREDIT",
+        "category": "CLASSIC",
+        "issuer": "ISTITUTO PER LE OPERE DI RELIGIONE",
+        "phone": "",
+        "website": "http://www.istrobanka.sk",
+        "country_code": "VA",
+        "country_code_alpha3": "VAT",
+        "country_name": "HOLY SEE (VATICAN CITY STATE)"
+    },
+    {
+        "bin": "460327",
+        "brand": "VISA",
+        "type": "CREDIT",
+        "category": "GOLD",
+        "issuer": "ISTITUTO PER LE OPERE DI RELIGIONE",
+        "phone": "",
+        "website": "http://www.istrobanka.sk",
+        "country_code": "VA",
+        "country_code_alpha3": "VAT",
+        "country_name": "HOLY SEE (VATICAN CITY STATE)"
+    }
+]
