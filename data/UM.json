@@ -1,0 +1,26 @@
+[
+    {
+        "bin": "458740",
+        "brand": "VISA",
+        "type": "DEBIT",
+        "category": "CLASSIC",
+        "issuer": "INTL HDQTRS-CENTER OWNED",
+        "phone": "",
+        "website": "",
+        "country_code": "UM",
+        "country_code_alpha3": "UMI",
+        "country_name": "UNITED STATES MINOR OUTLYING ISLANDS"
+    },
+    {
+        "bin": "458741",
+        "brand": "VISA",
+        "type": "DEBIT",
+        "category": "CLASSIC",
+        "issuer": "INTL HDQTRS-CENTER OWNED",
+        "phone": "",
+        "website": "",
+        "country_code": "UM",
+        "country_code_alpha3": "UMI",
+        "country_name": "UNITED STATES MINOR OUTLYING ISLANDS"
+    }
+]
