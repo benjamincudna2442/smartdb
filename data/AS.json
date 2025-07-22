@@ -1,0 +1,98 @@
+[
+    {
+        "bin": "377457",
+        "brand": "AMERICAN EXPRESS",
+        "type": "CREDIT",
+        "category": "PERSONAL GREEN REVOLVE",
+        "issuer": "WESTPAC - SOUTH PACIFIC",
+        "phone": "",
+        "website": "",
+        "country_code": "AS",
+        "country_code_alpha3": "ASM",
+        "country_name": "AMERICAN SAMOA"
+    },
+    {
+        "bin": "412028",
+        "brand": "VISA",
+        "type": "CREDIT",
+        "category": "",
+        "issuer": "AMERIKA SAMOA BANK",
+        "phone": "+16846331151",
+        "website": "http://www.anz.com",
+        "country_code": "AS",
+        "country_code_alpha3": "ASM",
+        "country_name": "AMERICAN SAMOA"
+    },
+    {
+        "bin": "433782",
+        "brand": "VISA",
+        "type": "CREDIT",
+        "category": "",
+        "issuer": "AMERIKA SAMOA BANK",
+        "phone": "+16846331151",
+        "website": "http://www.anz.com",
+        "country_code": "AS",
+        "country_code_alpha3": "ASM",
+        "country_name": "AMERICAN SAMOA"
+    },
+    {
+        "bin": "437964",
+        "brand": "VISA",
+        "type": "DEBIT",
+        "category": "GOLD",
+        "issuer": "ANZ BANK (SAMOA), LTD.",
+        "phone": "",
+        "website": "http://www.anz.com",
+        "country_code": "AS",
+        "country_code_alpha3": "ASM",
+        "country_name": "AMERICAN SAMOA"
+    },
+    {
+        "bin": "458744",
+        "brand": "VISA",
+        "type": "DEBIT",
+        "category": "CLASSIC",
+        "issuer": "INTL HDQTRS-CENTER OWNED",
+        "phone": "",
+        "website": "",
+        "country_code": "AS",
+        "country_code_alpha3": "ASM",
+        "country_name": "AMERICAN SAMOA"
+    },
+    {
+        "bin": "458745",
+        "brand": "VISA",
+        "type": "DEBIT",
+        "category": "CLASSIC",
+        "issuer": "INTL HDQTRS-CENTER OWNED",
+        "phone": "",
+        "website": "",
+        "country_code": "AS",
+        "country_code_alpha3": "ASM",
+        "country_name": "AMERICAN SAMOA"
+    },
+    {
+        "bin": "555466",
+        "brand": "MASTERCARD",
+        "type": "DEBIT",
+        "category": "BUSINESS",
+        "issuer": "BANZPAY TECHNOLOGY, LTD.",
+        "phone": "",
+        "website": "",
+        "country_code": "AS",
+        "country_code_alpha3": "ASM",
+        "country_name": "AMERICAN SAMOA"
+    },
+    {
+        "bin": "559116",
+        "brand": "MASTERCARD",
+        "type": "DEBIT",
+        "category": "STANDARD",
+        "issuer": "BANZPAY TECHNOLOGY, LTD.",
+        "phone": "",
+        "website": "",
+        "country_code": "AS",
+        "country_code_alpha3": "ASM",
+        "country_name": "AMERICAN SAMOA"
+    }
+]
