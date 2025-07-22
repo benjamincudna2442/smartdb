@@ -1,0 +1,50 @@
+[
+    {
+        "bin": "458746",
+        "brand": "VISA",
+        "type": "DEBIT",
+        "category": "CLASSIC",
+        "issuer": "INTL HDQTRS-CENTER OWNED",
+        "phone": "",
+        "website": "",
+        "country_code": "PW",
+        "country_code_alpha3": "PLW",
+        "country_name": "PALAU"
+    },
+    {
+        "bin": "458747",
+        "brand": "VISA",
+        "type": "DEBIT",
+        "category": "CLASSIC",
+        "issuer": "INTL HDQTRS-CENTER OWNED",
+        "phone": "",
+        "website": "",
+        "country_code": "PW",
+        "country_code_alpha3": "PLW",
+        "country_name": "PALAU"
+    },
+    {
+        "bin": "466570",
+        "brand": "VISA",
+        "type": "DEBIT",
+        "category": "",
+        "issuer": "FIFTH THIRD BANK",
+        "phone": "",
+        "website": "https://www.53.com",
+        "country_code": "PW",
+        "country_code_alpha3": "PLW",
+        "country_name": "PALAU"
+    },
+    {
+        "bin": "483783",
+        "brand": "VISA",
+        "type": "DEBIT",
+        "category": "",
+        "issuer": "BANK OF GUAM",
+        "phone": "",
+        "website": "http://www.bankofguam.com",
+        "country_code": "PW",
+        "country_code_alpha3": "PLW",
+        "country_name": "PALAU"
+    }
+]

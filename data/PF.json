@@ -1,0 +1,26 @@
+[
+    {
+        "bin": "379197",
+        "brand": "AMERICAN EXPRESS",
+        "type": "CREDIT",
+        "category": "PERSONAL",
+        "issuer": "OFINA",
+        "phone": "",
+        "website": "",
+        "country_code": "PF",
+        "country_code_alpha3": "PYF",
+        "country_name": "FRENCH POLYNESIA"
+    },
+    {
+        "bin": "629142",
+        "brand": "CHINA UNION PAY",
+        "type": "DEBIT",
+        "category": "PERSONAL",
+        "issuer": "BANQUE SOCREDO",
+        "phone": "",
+        "website": "",
+        "country_code": "PF",
+        "country_code_alpha3": "PYF",
+        "country_name": "FRENCH POLYNESIA"
+    }
+]
