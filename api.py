@@ -116,28 +116,46 @@ def welcome():
             "api_owner": "@ISmartCoder",
             "api_channel": "@TheSmartDev"
         }), 404
+    except Exception as e:
+        return jsonify({
+            "status": "error",
+            "message": f"An error occurred: {str(e)}",
+            "api_owner": "@ISmartCoder",
+            "api_channel": "@TheSmartDev"
+        }), 500
 
 @app.route('/health', methods=['GET'])
 def health_check():
     try:
-        response = app.test_client().get('/')
-        if response.status_code == 200:
+        # Check if the API is running and data directory exists
+        data_dir_exists = os.path.exists(COUNTRY_JSON_DIR)
+        if not data_dir_exists:
             return jsonify({
-                "status": "healthy",
-                "timestamp": datetime.now(timezone.utc).isoformat(),
-                "version": "1.0.0",
-                "cache_size": 5,
-                "uptime": time.time() - START_TIME,
+                "status": "unhealthy",
+                "message": f"Data directory not found: {COUNTRY_JSON_DIR}",
                 "api_owner": "@ISmartCoder",
                 "api_channel": "@TheSmartDev"
-            })
-        else:
+            }), 500
+
+        # Try accessing the welcome endpoint
+        response = app.test_client().get('/')
+        if response.status_code != 200:
             return jsonify({
                 "status": "unhealthy",
                 "message": "Welcome page request failed",
                 "api_owner": "@ISmartCoder",
                 "api_channel": "@TheSmartDev"
             }), 500
+
+        return jsonify({
+            "status": "healthy",
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "version": "1.0.0",
+            "cache_size": 5,
+            "uptime": time.time() - START_TIME,
+            "api_owner": "@ISmartCoder",
+            "api_channel": "@TheSmartDev"
+        })
     except Exception as e:
         return jsonify({
             "status": "unhealthy",
