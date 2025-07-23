@@ -1,10 +1,13 @@
 from flask import Flask, jsonify, request
 import os
 import json
+import time
+from datetime import datetime, timezone
 
 app = Flask(__name__)
 
 COUNTRY_JSON_DIR = "data"
+START_TIME = time.time()
 
 @app.route('/api/bin', methods=['GET'])
 def get_bins():
@@ -105,6 +108,28 @@ def get_bins():
 def welcome():
     with open('status.html', 'r', encoding='utf-8') as file:
         return file.read()
+
+@app.route('/health', methods=['GET'])
+def health_check():
+    try:
+        with open('status.html', 'r', encoding='utf-8') as file:
+            file.read()
+        return jsonify({
+            "status": "healthy",
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "version": "1.0.0",
+            "cache_size": 5,
+            "uptime": time.time() - START_TIME,
+            "api_owner": "@ISmartCoder",
+            "api_channel": "@TheSmartDev"
+        })
+    except Exception as e:
+        return jsonify({
+            "status": "error",
+            "message": f"Health check failed: {str(e)}",
+            "api_owner": "@ISmartCoder",
+            "api_channel": "@TheSmartDev"
+        }), 500
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
