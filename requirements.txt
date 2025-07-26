@@ -1,2 +1,3 @@
 flask
-ripgrep
+pycountry
+pycountry_convert
