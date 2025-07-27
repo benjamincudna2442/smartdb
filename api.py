@@ -151,8 +151,16 @@ async def get_bins(
                     "api_owner": "@ISmartCoder",
                     "api_channel": "@TheSmartDev"
                 }, 404
-            if limit is not None:
-                matching_bins = matching_bins[:limit]
+            if limit is None:
+                limit = 1000
+            if limit > 8000:
+                return {
+                    "status": "error",
+                    "message": "Maximum limit allowed for US is 8000",
+                    "api_owner": "@ISmartCoder",
+                    "api_channel": "@TheSmartDev"
+                }, 400
+            matching_bins = matching_bins[:limit]
             return {
                 "status": "SUCCESS",
                 "data": matching_bins,
