@@ -15,8 +15,7 @@ COUNTRY_DATA = {}
 START_TIME = time.time()
 
 async def load_file(file_path: str, country_code: str):
-    """Load a single JSON file with retry logic."""
-    for attempt in range(3):  # Retry up to 3 times
+    for attempt in range(3):
         try:
             async with asyncio.Lock():
                 with open(file_path, 'r', encoding='utf-8') as file:
@@ -29,17 +28,16 @@ async def load_file(file_path: str, country_code: str):
                 return True
         except Exception as e:
             print(f"Error loading {file_path} (attempt {attempt + 1}): {str(e)}")
-            await asyncio.sleep(0.1)  # Brief delay before retry
+            await asyncio.sleep(0.1)
     return False
 
 async def load_data():
-    """Load all JSON files concurrently from the data directory."""
     if not os.path.exists(COUNTRY_JSON_DIR):
         print(f"Directory {COUNTRY_JSON_DIR} does not exist")
         return
     tasks = []
     for filename in os.listdir(COUNTRY_JSON_DIR):
-        if filename.lower().endswith('.json'):  # Case-insensitive check
+        if filename.lower().endswith('.json'):
             country_code = filename.replace('.json', '').upper()
             file_path = os.path.join(COUNTRY_JSON_DIR, filename)
             tasks.append(load_file(file_path, country_code))
@@ -50,7 +48,6 @@ async def load_data():
     print(f"Loaded {len(COUNTRY_DATA)} countries and {len(BIN_INDEX)} BINs")
 
 def get_country_info(country_code: str) -> dict:
-    """Retrieve country information using pycountry."""
     country = pycountry.countries.get(alpha_2=country_code.upper())
     if not country:
         return {
@@ -75,7 +72,6 @@ def get_country_info(country_code: str) -> dict:
     }
 
 def format_entry(entry: dict) -> dict:
-    """Format a single BIN entry for response."""
     country_code = entry.get('country_code', '').upper()
     country_info = get_country_info(country_code)
     return {
@@ -95,7 +91,6 @@ def format_entry(entry: dict) -> dict:
 
 @app.on_event("startup")
 async def startup_event():
-    """Load data on application startup."""
     print("Starting data load...")
     await load_data()
 
@@ -106,7 +101,6 @@ async def get_bins(
     bin: Optional[str] = Query(None),
     limit: Optional[int] = Query(None, gt=0)
 ):
-    """Handle BIN lookup by bank, country, or BIN number."""
     if not COUNTRY_DATA and not BIN_INDEX:
         print("Data not loaded, attempting to reload...")
         await load_data()
@@ -145,25 +139,49 @@ async def get_bins(
 
     elif country:
         country = country.upper()
-        if country not in COUNTRY_DATA:
+        if country == 'US':
+            matching_bins = []
+            for country_code in ['US', 'US1', 'US2']:
+                if country_code in COUNTRY_DATA:
+                    matching_bins.extend([format_entry(entry) for entry in COUNTRY_DATA[country_code]])
+            if not matching_bins:
+                return {
+                    "status": "error",
+                    "message": "No data found for country code: US",
+                    "api_owner": "@ISmartCoder",
+                    "api_channel": "@TheSmartDev"
+                }, 404
+            if limit is not None:
+                matching_bins = matching_bins[:limit]
             return {
-                "status": "error",
-                "message": f"No data found for country code: {country}",
+                "status": "SUCCESS",
+                "data": matching_bins,
+                "count": len(matching_bins),
+                "filtered_by": "country",
                 "api_owner": "@ISmartCoder",
-                "api_channel": "@TheSmartDev"
-            }, 404
-        data = [format_entry(entry) for entry in COUNTRY_DATA[country]]
-        if limit is not None:
-            data = data[:limit]
-        return {
-            "status": "SUCCESS",
-            "data": data,
-            "count": len(data),
-            "filtered_by": "country",
-            "api_owner": "@ISmartCoder",
-            "api_channel": "@TheSmartDev",
-            "Luhn": True
-        }
+                "api_channel": "@TheSmartDev",
+                "Luhn": True
+            }
+        else:
+            if country not in COUNTRY_DATA:
+                return {
+                    "status": "error",
+                    "message": f"No data found for country code: {country}",
+                    "api_owner": "@ISmartCoder",
+                    "api_channel": "@TheSmartDev"
+                }, 404
+            data = [format_entry(entry) for entry in COUNTRY_DATA[country]]
+            if limit is not None:
+                data = data[:limit]
+            return {
+                "status": "SUCCESS",
+                "data": data,
+                "count": len(data),
+                "filtered_by": "country",
+                "api_owner": "@ISmartCoder",
+                "api_channel": "@TheSmartDev",
+                "Luhn": True
+            }
 
     elif bin:
         if not BIN_INDEX:
@@ -200,7 +218,6 @@ async def get_bins(
 
 @app.get("/api/binfo")
 async def get_bin_info(bin: Optional[str] = Query(None)):
-    """Handle BIN info lookup."""
     if not bin:
         return {
             "status": "error",
@@ -237,7 +254,6 @@ async def get_bin_info(bin: Optional[str] = Query(None)):
 
 @app.get("/health")
 async def health_check():
-    """Return health status and uptime."""
     uptime = time.time() - START_TIME
     return {
         "status": "healthy",
@@ -252,7 +268,6 @@ async def health_check():
 
 @app.get("/", response_class=HTMLResponse)
 async def welcome():
-    """Serve the welcome page."""
     try:
         async with asyncio.Lock():
             with open('status.html', 'r', encoding='utf-8') as file:
