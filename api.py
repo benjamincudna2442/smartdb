@@ -1,31 +1,35 @@
-from flask import Flask, jsonify, request
-import os
+import asyncio
 import json
+import os
 import time
+from fastapi import FastAPI, Query
+from fastapi.responses import HTMLResponse
 import pycountry
 import pycountry_convert
+from typing import Optional
 
-app = Flask(__name__)
+app = FastAPI()
 COUNTRY_JSON_DIR = "data"
 BIN_INDEX = {}
 COUNTRY_DATA = {}
 START_TIME = time.time()
 
-def load_data():
+async def load_data():
     if not os.path.exists(COUNTRY_JSON_DIR):
         return
     for filename in os.listdir(COUNTRY_JSON_DIR):
         if filename.endswith('.json'):
             country_code = filename.replace('.json', '').upper()
             file_path = os.path.join(COUNTRY_JSON_DIR, filename)
-            with open(file_path, 'r', encoding='utf-8') as file:
-                data = json.load(file)
-            COUNTRY_DATA[country_code] = data
-            for entry in data:
-                if 'bin' in entry:
-                    BIN_INDEX[entry['bin']] = entry
+            async with asyncio.Lock():
+                with open(file_path, 'r', encoding='utf-8') as file:
+                    data = json.load(file)
+                COUNTRY_DATA[country_code] = data
+                for entry in data:
+                    if 'bin' in entry:
+                        BIN_INDEX[entry['bin']] = entry
 
-def get_country_info(country_code):
+def get_country_info(country_code: str) -> dict:
     country = pycountry.countries.get(alpha_2=country_code.upper())
     if not country:
         return {
@@ -48,7 +52,7 @@ def get_country_info(country_code):
         "Cont": continent
     }
 
-def format_entry(entry):
+def format_entry(entry: dict) -> dict:
     country_code = entry.get('country_code', '').upper()
     country_info = get_country_info(country_code)
     return {
@@ -66,38 +70,40 @@ def format_entry(entry):
         "website": entry.get('website', '')
     }
 
-load_data()
+@app.on_event("startup")
+async def startup_event():
+    await load_data()
 
-@app.route('/api/bin', methods=['GET'])
-def get_bins():
-    bank = request.args.get('bank')
-    country = request.args.get('country')
-    bin_number = request.args.get('bin')
-    limit = request.args.get('limit', default=None, type=int)
-    
+@app.get("/api/bin")
+async def get_bins(
+    bank: Optional[str] = Query(None),
+    country: Optional[str] = Query(None),
+    bin: Optional[str] = Query(None),
+    limit: Optional[int] = Query(None, gt=0)
+):
     if bank:
         if not COUNTRY_DATA:
-            return jsonify({
+            return {
                 "status": "error",
                 "message": f"Data directory not found or empty: {COUNTRY_JSON_DIR}",
                 "api_owner": "@ISmartCoder",
                 "api_channel": "@TheSmartDev"
-            }), 500
+            }
         matching_bins = []
-        for data in COUNTRY_DATA.values():
+        async for data in COUNTRY_DATA.values():
             for entry in data:
                 if 'issuer' in entry and bank.lower() in entry['issuer'].lower():
                     matching_bins.append(format_entry(entry))
         if not matching_bins:
-            return jsonify({
+            return {
                 "status": "error",
                 "message": f"No matches found for bank: {bank}",
                 "api_owner": "@ISmartCoder",
                 "api_channel": "@TheSmartDev"
-            }), 404
-        if limit is not None and limit > 0:
+            }
+        if limit is not None:
             matching_bins = matching_bins[:limit]
-        return jsonify({
+        return {
             "status": "SUCCESS",
             "data": matching_bins,
             "count": len(matching_bins),
@@ -105,21 +111,21 @@ def get_bins():
             "api_owner": "@ISmartCoder",
             "api_channel": "@TheSmartDev",
             "Luhn": True
-        })
+        }
     
     elif country:
         country = country.upper()
         if country not in COUNTRY_DATA:
-            return jsonify({
+            return {
                 "status": "error",
                 "message": f"No data found for country code: {country}",
                 "api_owner": "@ISmartCoder",
                 "api_channel": "@TheSmartDev"
-            }), 404
+            }
         data = [format_entry(entry) for entry in COUNTRY_DATA[country]]
-        if limit is not None and limit > 0:
+        if limit is not None:
             data = data[:limit]
-        return jsonify({
+        return {
             "status": "SUCCESS",
             "data": data,
             "count": len(data),
@@ -127,79 +133,78 @@ def get_bins():
             "api_owner": "@ISmartCoder",
             "api_channel": "@TheSmartDev",
             "Luhn": True
-        })
+        }
     
-    elif bin_number:
+    elif bin:
         if not BIN_INDEX:
-            return jsonify({
+            return {
                 "status": "error",
                 "message": f"Data directory not found or empty: {COUNTRY_JSON_DIR}",
                 "api_owner": "@ISmartCoder",
                 "api_channel": "@TheSmartDev"
-            }), 500
-        if bin_number in BIN_INDEX:
-            return jsonify({
+            }
+        if bin in BIN_INDEX:
+            return {
                 "status": "SUCCESS",
-                "data": [format_entry(BIN_INDEX[bin_number])],
+                "data": [format_entry(BIN_INDEX[bin])],
                 "count": 1,
                 "filtered_by": "bin",
                 "api_owner": "@ISmartCoder",
                 "api_channel": "@TheSmartDev",
                 "Luhn": True
-            })
-        return jsonify({
+            }
+        return {
             "status": "error",
-            "message": f"No matches found for BIN: {bin_number}",
+            "message": f"No matches found for BIN: {bin}",
             "api_owner": "@ISmartCoder",
             "api_channel": "@TheSmartDev"
-        }), 404
+        }
     
     else:
-        return jsonify({
+        return {
             "status": "error",
             "message": "Please provide either 'bank', 'country', or 'bin' query parameter",
             "api_owner": "@ISmartCoder",
             "api_channel": "@TheSmartDev"
-        }), 400
+        }
 
-@app.route('/api/binfo', methods=['GET'])
-def get_bin_info():
-    bin_number = request.args.get('bin')
-    if not bin_number:
-        return jsonify({
+@app.get("/api/binfo")
+async def get_bin_info(bin: Optional[str] = Query(None)):
+    if not bin:
+        return {
             "status": "error",
             "message": "Please provide 'bin' query parameter",
             "api_owner": "@ISmartCoder",
             "api_channel": "@TheSmartDev"
-        }), 400
+        }
     if not BIN_INDEX:
-        return jsonify({
+        return {
             "status": "error",
             "message": f"Data directory not found or empty: {COUNTRY_JSON_DIR}",
             "api_owner": "@ISmartCoder",
             "api_channel": "@TheSmartDev"
-        }), 500
-    if bin_number in BIN_INDEX:
-        return jsonify({
+        }
+    if bin in BIN_INDEX:
+        return {
             "status": "SUCCESS",
-            "data": [format_entry(BIN_INDEX[bin_number])],
+            "data": [format_entry(BIN_INDEX[bin])],
             "count": 1,
             "filtered_by": "bin",
             "api_owner": "@ISmartCoder",
             "api_channel": "@TheSmartDev",
             "Luhn": True
-        })
-    return jsonify({
+        }
+    return {
         "status": "error",
-        "message": f"No matches found for BIN: {bin_number}",
+        "message": f"No matches found for BIN: {bin}",
         "api_owner": "@ISmartCoder",
         "api_channel": "@TheSmartDev"
-    }), 404
+    }
 
-@app.route('/health', methods=['GET'])
-def health_check():
+@app.get("/health")
+async def health_check():
     uptime = time.time() - START_TIME
-    return jsonify({
+    return {
         "status": "healthy",
         "uptime_seconds": round(uptime, 2),
         "api_info": {
@@ -208,12 +213,14 @@ def health_check():
         },
         "api_owner": "@ISmartCoder",
         "api_channel": "@TheSmartDev"
-    })
+    }
 
-@app.route('/')
-def welcome():
-    with open('status.html', 'r', encoding='utf-8') as file:
-        return file.read()
+@app.get("/", response_class=HTMLResponse)
+async def welcome():
+    async with asyncio.Lock():
+        with open('status.html', 'r', encoding='utf-8') as file:
+            return file.read()
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=5000)
